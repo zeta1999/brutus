@@ -31,6 +31,14 @@ struct JLIRToLLVMTypeConverter : public TypeConverter {
         addConversion(
             [&](JuliaType jt) {
                 return julia_type_to_llvm((jl_value_t*)jt.getDatatype()); });
+            // [&](JuliaType jt, SmallVectorImpl<Type> &results) {
+            //     LLVM::LLVMType converted =
+            //         julia_type_to_llvm((jl_value_t*)jt.getDatatype());
+            //     // drop value if it converts to void type
+            //     if (converted != void_type) {
+            //         results.push_back(converted);
+            //     }
+            //     return success(); });
     }
 
     LLVM::LLVMType julia_bitstype_to_llvm(jl_value_t *bt) {
