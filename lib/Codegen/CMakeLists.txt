@@ -9,9 +9,11 @@ add_dependencies(BRUTUSCodegen
     MLIRJulia
     MLIRTargetLLVMIR
     LLVMBitWriter
+    LLVMCore
 )
 target_link_libraries(BRUTUSCodegen
     MLIRTargetLLVMIR
     LLVMBitWriter
+    LLVMCore
 )
 set_property(GLOBAL APPEND PROPERTY BRUTUS_LIBS BRUTUSCodegen)
